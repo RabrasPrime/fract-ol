@@ -6,13 +6,11 @@
 #    By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 14:10:16 by tjooris           #+#    #+#              #
-#    Updated: 2025/02/10 14:57:12 by tjooris          ###   ########.fr        #
+#    Updated: 2025/02/18 13:36:21 by tjooris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fract-ol
-
-NAME_BONUS = checker
 
 #=-=-=-=-=-=-FILES-=-=-=-=-=-=#
 
@@ -35,19 +33,21 @@ SRC =   main.c
 
 #=-=-=-=-=-=-FILE-=-=-=-=-=#
 
-SRC +=  $(addprefix $(FILE_DIR), $(FILE_SRC))
+#SRC +=  $(addprefix $(FILE_DIR), $(FILE_SRC))
 
-FILE_DIR    =   file/
-FILE_SRC    =   file.c
+#FILE_DIR    =   file/
+#FILE_SRC    =   file.c
 
 
 #=-=-=-=-=-=-INCLUDES-=-=-=-=-=#
 
 LIB_DIR     =   lib/
-LIB_PATH    =   libft/libft.a
+LIB_PATH    =   minilibx/libmlx.a
 
 LIB_PATH    :=  $(addprefix $(LIB_DIR),$(LIB_PATH))
 LIB         =   $(patsubst lib%.a, %, $(notdir $(LIB_PATH)))
+
+SYS_LIB     =   -lmlx -lX11 -lXext -lm
 
 INC_DIR     =   include/
 INCLUDES    =   $(INC_DIR) \
@@ -108,11 +108,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIB_PATH)
 	@echo $(MODE) > $(MODES_TRACE)
-	$(CC) $(FLAGS) $(OBJS) $(LDFLAGS) $(LDLIB) -o $(NAME)
-
-$(NAME_BONUS): $(OBJS_BONUS) $(OBJS) $(LIB_PATH)
-	@echo $(MODE) > $(MODES_TRACE)
-	$(CC) $(FLAGS) $(OBJS_BONUS) $(LDFLAGS) $(LDLIB) -o $(NAME_BONUS)
+	$(CC) $(FLAGS) $(OBJS) $(LDFLAGS) $(LDLIB) $(SYS_LIB) -o $(NAME)
 
 $(BUILD_DIR)%.o: $(SRC_DIR)%.c $(LIB_PATH)
 	@mkdir -p $(@D)
@@ -134,9 +130,6 @@ fclean:
 .PHONY: re
 re: fclean
 	$(MAKE)
-
-.PHONY: bonus
-bonus: $(NAME_BONUS)
 
 help:
 	@echo "Usage: make [target]"
