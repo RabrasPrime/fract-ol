@@ -6,7 +6,7 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 19:04:37 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/07 00:41:23 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 00:53:28 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ static	void	pick_fractal(t_data *data, t_cnum *c, t_cnum *z)
 	}
 }
 
-/* this function is used to render iteritave fractals,
- i.e julia and mandelbrot */
 void	pixel_iter(t_data *data, int x, int y)
 {
 	t_cnum	c;
@@ -110,15 +108,12 @@ void	fractal_render(t_data *data)
 			}
 		}
 	}
-	else
+	while (++y < HEIGHT)
 	{
-		while (++y < HEIGHT)
+		x = -1;
+		while (++x < WIDTH)
 		{
-			x = -1;
-			while (++x < WIDTH)
-			{
-				pixel_beetle(data, x, y);
-			}
+			pixel_beetle(data, x, y);
 		}
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->imgd.img, 0, 0);

@@ -2,6 +2,7 @@
 	"files.associations": {
 		"cerrno": "c",
 		"ft_fractol.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"math.h": "c"
 	}
 }

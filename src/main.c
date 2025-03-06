@@ -6,7 +6,7 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:53:32 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/07 00:44:40 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 00:53:54 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 }
-

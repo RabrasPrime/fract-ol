@@ -6,12 +6,12 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:02:45 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/06 11:02:54 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 00:54:49 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_COLORS_H
-# define FT_COLORS_H
+#ifndef FT_COLOR_H
+# define FT_COLOR_H
 
 # define WHITE			0xFFFFFF
 # define RED			0xFF0000

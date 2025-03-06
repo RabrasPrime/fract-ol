@@ -6,7 +6,7 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 11:33:20 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/07 00:43:26 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 00:55:01 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <stdio.h>
-#include "errno.h"
+# include "errno.h"
 # include <math.h>
 
 # define WIDTH 800
