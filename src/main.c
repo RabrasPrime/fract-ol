@@ -6,23 +6,36 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:53:32 by tjooris           #+#    #+#             */
-/*   Updated: 2025/02/24 13:45:09 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/06 11:03:42 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/minilibx/mlx.h"
+#include <mlx.h>
+#include "../includes/fractol.h"
 
-int main()
+int	main(int argc, char **argv)
 {
-    void *mlx;
-    void *win;
+	t_data	data;
 
-    mlx = mlx_init();
-    if (!mlx)
-        return (1);
-    win = mlx_new_window(mlx, 800, 600, "Ma Fenêtre MLX");
-    if (!win)
-        return (1);
-    mlx_loop(mlx);
-    return (0);
+	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)) || (argc == 4
+			&& !ft_strncmp(argv[1], "julia", 5))
+		|| (argc == 2 && !ft_strncmp(argv[1], "beetle", 6)))
+	{
+		if (!ft_strncmp(argv[1], "mandelbrot", 10))
+			data.fractal = MANDELBROT;
+		else if (!ft_strncmp(argv[1], "julia", 5))
+			data.fractal = JULIA;
+		else
+			data.fractal = BEETLE;
+		fractal_init(&data, argv);
+		fractal_render(&data);
+		mlx_loop(data.mlx);
+	}
+	else
+	{
+		errno = EINVAL;
+		perror("Usage: ./fractol beetle-mandelbrot-julia <real> <imaginary>");
+		exit(EXIT_FAILURE);
+	}
 }
+
