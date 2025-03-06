@@ -6,11 +6,11 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:03:57 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/06 11:04:22 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 00:31:10 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "ft_fractol.h"
 
 // linear interpolation, used to map pixel coordinates to complex plane
 double	lin_intrp(double transform, double l1, double l2, double res)

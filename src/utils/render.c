@@ -6,11 +6,11 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 19:04:37 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/06 11:05:12 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 00:41:23 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "ft_fractol.h"
 
 static	void	pick_fractal(t_data *data, t_cnum *c, t_cnum *z)
 {

@@ -6,11 +6,11 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 09:05:27 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/06 11:05:51 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 00:31:21 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "ft_fractol.h"
 
 void	shift_x(t_data *data, int direction)
 {

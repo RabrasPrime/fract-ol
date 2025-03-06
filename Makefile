@@ -6,7 +6,7 @@
 #    By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 14:10:16 by tjooris           #+#    #+#              #
-#    Updated: 2025/02/18 13:36:21 by tjooris          ###   ########.fr        #
+#    Updated: 2025/03/07 00:37:30 by tjooris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,16 +33,21 @@ SRC =   main.c
 
 #=-=-=-=-=-=-FILE-=-=-=-=-=#
 
-#SRC +=  $(addprefix $(FILE_DIR), $(FILE_SRC))
+SRC +=  $(addprefix $(FILE_DIR), $(FILE_SRC))
 
-#FILE_DIR    =   file/
-#FILE_SRC    =   file.c
+FILE_DIR    =   utils/
+FILE_SRC    =   hooks.c \
+				init.c \
+				math.c \
+				render.c \
+				shift_zoom.c \
+				utils.c \
 
 
 #=-=-=-=-=-=-INCLUDES-=-=-=-=-=#
 
 LIB_DIR     =   lib/
-LIB_PATH    =   minilibx/libmlx.a
+LIB_PATH    =   libft/libft.a minilibx/libmlx.a
 
 LIB_PATH    :=  $(addprefix $(LIB_DIR),$(LIB_PATH))
 LIB         =   $(patsubst lib%.a, %, $(notdir $(LIB_PATH)))

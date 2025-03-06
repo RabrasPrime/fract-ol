@@ -6,11 +6,11 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 11:06:01 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/06 11:06:17 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 00:31:25 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "ft_fractol.h"
 
 void	free_data(t_data *data)
 {

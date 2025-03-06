@@ -6,19 +6,21 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 11:33:20 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/06 11:02:10 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 00:43:26 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FRACTOL_H
 # define FT_FRACTOL_H
 
-# include "../libft/libft.h"
-# include "colors.h"
+# include "../lib/libft/include/libft.h"
+# include "ft_color.h"
 # include "mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <stdio.h>
+#include "errno.h"
+# include <math.h>
 
 # define WIDTH 800
 # define HEIGHT 800
