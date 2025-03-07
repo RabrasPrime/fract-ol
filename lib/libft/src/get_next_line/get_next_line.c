@@ -6,7 +6,7 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 15:20:29 by tjooris           #+#    #+#             */
-/*   Updated: 2025/02/19 19:40:38 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/03 09:10:56 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,18 +94,5 @@ char	*get_next_line(int fd, int status)
 	bytes_read = read_until_newline(fd, &buffer, &newline_pos);
 	if (bytes_read != -1 && buffer.length > 0)
 		line = extract_line(&buffer, newline_pos);
-	if (bytes_read <= 0 || line == NULL)
-	{
-		free(buffer.data);
-		buffer.data = NULL;
-		buffer.length = 0;
-		buffer.capacity = 0;
-		if (bytes_read == -1 || line == NULL)
-		{
-			free(line);
-			line = NULL;
-			return (NULL);
-		}
-	}
-	return (line);
+	return (handle_buffer_cleanup(&buffer, line, bytes_read));
 }

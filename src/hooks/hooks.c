@@ -6,7 +6,7 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:06:57 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/07 00:30:58 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 14:20:46 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	my_hooks(t_data *data)
 int	key_press(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape)
-		free_data(data);
+		free_data(data, 0);
 	else if (keycode == XK_Right)
 		shift_x(data, 1);
 	else if (keycode == XK_Left)
@@ -66,6 +66,6 @@ int	mouse_press(int button, int x, int y, t_data *data)
 
 int	exit_hook(t_data *data)
 {
-	free_data(data);
+	free_data(data, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 15:20:19 by tjooris           #+#    #+#             */
-/*   Updated: 2025/02/19 19:21:21 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 14:47:52 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ typedef struct s_buffer
 
 char	*get_next_line(int fd, int status);
 char	*ft_strndup(char *ptr, size_t n);
-//void	*ft_memcpy(void *dest, const void *src, size_t n);
-//void	*ft_memmove(void *dest, const void *src, size_t n);
-//void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size);
+char	*handle_buffer_cleanup(t_buffer *buffer,
+			char *line, ssize_t bytes_read);
 
 #endif

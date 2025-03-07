@@ -6,7 +6,7 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 15:20:37 by tjooris           #+#    #+#             */
-/*   Updated: 2025/02/07 14:31:47 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/03 09:08:58 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,7 @@
 #include <stddef.h>
 #include "get_next_line.h"
 #include "libft.h"
-/*
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	size_t	i;
 
-	i = 0;
-	if (dest == 0 && src == 0)
-		return (dest);
-	while (i < n)
-	{
-		*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
-		i++;
-	}
-	return (dest);
-}
-
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	unsigned char	*d;
-	unsigned char	*s;
-
-	if ((dest == 0 && src == 0) || n == 0)
-		return (dest);
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	if (d > s)
-	{
-		while (n > 0)
-		{
-			*(d + n - 1) = *(s + n - 1);
-			n--;
-		}
-	}
-	else
-		while (n-- > 0)
-			*(d++) = *(s++);
-	return (dest);
-}
-
-void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size)
-{
-	while (size > 0)
-	{
-		if (*(unsigned char *)memoryBlock == (unsigned char)searchedChar)
-			return ((void *)memoryBlock);
-		memoryBlock++;
-		size--;
-	}
-	return (0);
-}
-*/
 char	*ft_strndup(char *ptr, size_t n)
 {
 	char	*line;
@@ -74,5 +24,23 @@ char	*ft_strndup(char *ptr, size_t n)
 		return (NULL);
 	ft_memcpy(line, ptr, n);
 	line[n] = '\0';
+	return (line);
+}
+
+char	*handle_buffer_cleanup(t_buffer *buffer, char *line, ssize_t bytes_read)
+{
+	if (bytes_read <= 0 || line == NULL)
+	{
+		free(buffer->data);
+		buffer->data = NULL;
+		buffer->length = 0;
+		buffer->capacity = 0;
+		if (bytes_read == -1 || line == NULL)
+		{
+			free(line);
+			line = NULL;
+			return (NULL);
+		}
+	}
 	return (line);
 }

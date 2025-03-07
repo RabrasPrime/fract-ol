@@ -6,16 +6,43 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:03:57 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/07 00:53:45 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 15:27:17 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
 
-// linear interpolation, used to map pixel coordinates to complex plane
 double	lin_intrp(double transform, double l1, double l2, double res)
 {
 	return (transform * (l2 - l1) / (res) + l1);
+}
+
+void	is_double(char *str)
+{
+	int	i;
+	int	sign;
+	int point;
+
+	i = 0;
+	point = 0;
+	sign = 0;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		i++;
+		sign = 1;
+	}
+	while (str[i])
+	{
+		if (str[i] == '-' || str[i] == '+')
+			ft_error("error, invalid number");
+		if ((str[i] < '0' && str[i] > '9'))
+			ft_error("error, invalid number");
+		if ((str[i] == '.' && point))
+			ft_error("error, invalid number");
+		else if ((str[i] == '.' && !point))
+			point = 1;
+		i++;
+	}
 }
 
 double	atodbl(char *s)

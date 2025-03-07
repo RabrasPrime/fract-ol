@@ -6,7 +6,7 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 11:06:27 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/07 00:31:04 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 15:24:03 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,24 @@ static void	data_init(t_data *data, char **argv)
 
 void	fractal_init(t_data *data, char **argv)
 {
+	if (data->fractal == JULIA)
+	{
+		is_double(argv[2]);
+		is_double(argv[3]);
+	}
 	data_init(data, argv);
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		free_data(data);
+		free_data(data, 1);
 	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Fract-ol");
 	if (!data->win)
-		free_data(data);
+		free_data(data, 1);
 	data->imgd.img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (!data->imgd.img)
-		free_data(data);
+		free_data(data, 1);
 	data->imgd.addr = mlx_get_data_addr(data->imgd.img, &data->imgd.bpp,
 			&data->imgd.llen, &data->imgd.endian);
 	if (!data->imgd.addr)
-		free_data(data);
+		free_data(data, 1);
 	my_hooks(data);
 }
