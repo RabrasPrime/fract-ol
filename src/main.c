@@ -6,11 +6,10 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:53:32 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/07 00:53:54 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 11:06:56 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
 #include "ft_fractol.h"
 
 int	main(int argc, char **argv)
@@ -32,9 +31,5 @@ int	main(int argc, char **argv)
 		mlx_loop(data.mlx);
 	}
 	else
-	{
-		errno = EINVAL;
-		perror("Usage: ./fractol beetle-mandelbrot-julia <real> <imaginary>");
-		exit(EXIT_FAILURE);
-	}
+		ft_error("Usage: ./fractol beetle-mandelbrot-julia <real> <imaginary>");
 }

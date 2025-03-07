@@ -6,7 +6,7 @@
 #    By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 14:10:16 by tjooris           #+#    #+#              #
-#    Updated: 2025/03/07 00:37:30 by tjooris          ###   ########.fr        #
+#    Updated: 2025/03/07 12:23:31 by tjooris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,24 +30,41 @@ DEPS_BONUS        =   $(patsubst %.c, $(BUILD_DIR)%.d, $(SRC_BONUS))
 
 SRC =   main.c
 
+#=-=-=-=-=-=-HOOKS-=-=-=-=-=#
 
-#=-=-=-=-=-=-FILE-=-=-=-=-=#
+SRC +=  $(addprefix $(HOOKS_DIR), $(HOOKS_SRC))
 
-SRC +=  $(addprefix $(FILE_DIR), $(FILE_SRC))
+HOOKS_DIR    =   hooks/
+HOOKS_SRC    =   hooks.c \
 
-FILE_DIR    =   utils/
-FILE_SRC    =   hooks.c \
-				init.c \
+#=-=-=-=-=-=-UTILS-=-=-=-=-=#
+
+SRC +=  $(addprefix $(UTILS_DIR), $(UTILS_SRC))
+
+UTILS_DIR    =   utils/
+UTILS_SRC    =   init.c \
 				math.c \
-				render.c \
 				shift_zoom.c \
 				utils.c \
 
+#=-=-=-=-=-=-RENDER-=-=-=-=-=#
+
+SRC +=  $(addprefix $(RENDER_DIR), $(RENDER_SRC))
+
+RENDER_DIR    =   render/
+RENDER_SRC    =   render.c \
+
+#=-=-=-=-=-=-COLOR-=-=-=-=-=#
+
+SRC +=  $(addprefix $(COLOR_DIR), $(COLOR_SRC))
+
+COLOR_DIR    =   color/
+COLOR_SRC    =   color.c \
 
 #=-=-=-=-=-=-INCLUDES-=-=-=-=-=#
 
 LIB_DIR     =   lib/
-LIB_PATH    =   libft/libft.a minilibx/libmlx.a
+LIB_PATH    =   libft/libft.a minilibx/libmlx.a minilibx/libmlx_Linux.a
 
 LIB_PATH    :=  $(addprefix $(LIB_DIR),$(LIB_PATH))
 LIB         =   $(patsubst lib%.a, %, $(notdir $(LIB_PATH)))
