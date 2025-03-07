@@ -6,7 +6,7 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 11:33:20 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/07 15:19:50 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 16:30:23 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_data
 /*Initi and error handling*/
 void			fractal_init(t_data *data, char **argv);
 void			free_data(t_data *data, int error);
-void				is_double(char *str);
+void			is_double(char *str);
 /*rendering*/
 void			fractal_render(t_data *data);
 void			my_pixel_put(int x, int y, t_img *img, int color);

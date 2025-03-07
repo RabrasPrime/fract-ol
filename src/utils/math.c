@@ -6,7 +6,7 @@
 /*   By: tjooris <tjooris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:03:57 by tjooris           #+#    #+#             */
-/*   Updated: 2025/03/07 15:27:17 by tjooris          ###   ########.fr       */
+/*   Updated: 2025/03/07 16:29:57 by tjooris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,19 @@ void	is_double(char *str)
 {
 	int	i;
 	int	sign;
-	int point;
+	int	point;
 
 	i = 0;
 	point = 0;
 	sign = 0;
 	if (str[i] == '-' || str[i] == '+')
-	{
 		i++;
-		sign = 1;
-	}
 	while (str[i])
 	{
 		if (str[i] == '-' || str[i] == '+')
 			ft_error("error, invalid number");
-		if ((str[i] < '0' && str[i] > '9'))
-			ft_error("error, invalid number");
-		if ((str[i] == '.' && point))
+		if ((str[i] < '0' || str[i] > '9')
+			&& (str[i] == '.' && point))
 			ft_error("error, invalid number");
 		else if ((str[i] == '.' && !point))
 			point = 1;
